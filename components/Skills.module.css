@@ -1,0 +1,101 @@
+.section {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 3.5rem 2.5rem;
+}
+
+.label {
+  font-family: "Space Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+
+.heading {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.4rem;
+  font-weight: 300;
+  letter-spacing: -0.015em;
+  color: var(--text);
+  margin-bottom: 1.8rem;
+}
+
+/* ── Track wrapper ── */
+.trackWrap {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  padding: 1.5rem 0;
+  cursor: ew-resize;         /* left-right resize cursor hints at scroll */
+  user-select: none;
+}
+
+/* Seamless scroll track — width set by content */
+.track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+/* ── Individual skill card ── */
+.card {
+  flex-shrink: 0;
+  width: 140px;
+  padding: 1rem;
+  margin: 0 6px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card);
+  text-align: center;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.card:hover {
+  border-color: var(--gold);
+  background: var(--gold-bg);
+}
+
+.icon {
+  display: block;
+  font-size: 22px;
+  margin-bottom: 6px;
+}
+
+.name {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.type {
+  font-family: "Space Mono", monospace;
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 3px;
+}
+
+/* ── Fade edges — left and right ── */
+.fadeLeft,
+.fadeRight {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 60px;
+  pointer-events: none;
+}
+
+.fadeLeft {
+  left: 0;
+  background: linear-gradient(to right, var(--surface), transparent);
+}
+
+.fadeRight {
+  right: 0;
+  background: linear-gradient(to left, var(--surface), transparent);
+}

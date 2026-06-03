@@ -1,0 +1,109 @@
+.section {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 3.5rem 2.5rem 5rem;
+}
+
+.label {
+  font-family: "Space Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+.card {
+  border: 1px solid var(--border2);
+  border-radius: 12px;
+  background: var(--surface);
+  padding: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.heading {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.4rem;
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.heading em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.sub {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 300;
+}
+
+/* ── Contact links ── */
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 200px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--muted);
+  text-decoration: none;
+  font-family: "Space Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+  overflow: hidden;
+}
+
+.link:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: var(--gold-bg);
+}
+
+.linkIcon {
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+/* Glitch effect on the link label text */
+.linkText {
+  position: relative;
+}
+
+.linkText::before,
+.linkText::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  clip: rect(0, 0, 0, 0);
+  pointer-events: none;
+  font-family: "Space Mono", monospace;
+  font-size: 10px;
+}
+
+.link:hover .linkText::before {
+  color: var(--red);
+  animation: glitch-r 0.2s infinite steps(1);
+}
+
+.link:hover .linkText::after {
+  color: var(--blue);
+  animation: glitch-b 0.2s infinite steps(1);
+}

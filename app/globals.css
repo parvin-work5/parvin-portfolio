@@ -1,0 +1,86 @@
+/* ─────────────────────────────────────────────
+   app/globals.css
+
+   Design tokens, resets, typography, and the
+   glitch animation keyframes used site-wide.
+   ───────────────────────────────────────────── */
+
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Space+Grotesk:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap");
+
+/* ── Tokens ── */
+:root {
+  --bg:       #0c0c10;
+  --surface:  #13131a;
+  --card:     #1a1a24;
+  --border:   rgba(255, 255, 255, 0.07);
+  --border2:  rgba(255, 255, 255, 0.13);
+  --text:     #e8e4dc;
+  --muted:    #7a7690;
+  --faint:    #3a3752;
+  --gold:     #c9a84c;
+  --gold-bg:  rgba(201, 168, 76, 0.12);
+  --teal:     #3ecfcf;
+  --red:      #ff3c3c;
+  --blue:     #3c8fff;
+  --green:    #3cffb4;
+}
+
+/* ── Reset ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Space Grotesk", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ── Glitch keyframes ──
+   Two independent clip-rect animations that offset
+   in opposite directions, creating the RGB split look. */
+@keyframes glitch-r {
+  0%   { clip: rect(12px, 999px, 18px, 0); transform: translate(-2px, 0); }
+  20%  { clip: rect(4px,  999px,  8px, 0); transform: translate( 2px, 0); }
+  40%  { clip: rect(22px, 999px, 28px, 0); transform: translate(-1px, 0); }
+  60%  { clip: rect(8px,  999px, 14px, 0); transform: translate( 2px, 0); }
+  80%  { clip: rect(16px, 999px, 20px, 0); transform: translate(-2px, 0); }
+  100% { clip: rect(2px,  999px,  6px, 0); transform: translate( 1px, 0); }
+}
+
+@keyframes glitch-b {
+  0%   { clip: rect(6px,  999px, 10px, 0); transform: translate( 2px, 0); }
+  20%  { clip: rect(18px, 999px, 24px, 0); transform: translate(-2px, 0); }
+  40%  { clip: rect(2px,  999px,  6px, 0); transform: translate( 1px, 0); }
+  60%  { clip: rect(20px, 999px, 26px, 0); transform: translate(-1px, 0); }
+  80%  { clip: rect(10px, 999px, 16px, 0); transform: translate( 2px, 0); }
+  100% { clip: rect(14px, 999px, 20px, 0); transform: translate(-2px, 0); }
+}
+
+/* ── Pulse (AI status dot) ── */
+@keyframes pulse {
+  0%, 100% { opacity: 1;   transform: scale(1);   }
+  50%       { opacity: 0.4; transform: scale(0.8); }
+}
+
+/* ── Typing bounce (AI loading dots) ── */
+@keyframes typing {
+  0%, 60%, 100% { transform: translateY(0); }
+  30%           { transform: translateY(-5px); }
+}
+
+/* ── Message fade-in ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
