@@ -1,30 +1,16 @@
 "use client"
 
-// ─────────────────────────────────────────────
-// components/Skills.tsx
-//
-// Horizontally scrolling skill cards.
-//
-// Behaviour:
-//   - Auto-scrolls at a steady pace when idle
-//   - Hover right side → speeds up to the right
-//   - Hover left side  → reverses to the left
-//   - Dead zone in the center → neutral / pauses
-//   - Cards are duplicated so the loop is seamless
-// ─────────────────────────────────────────────
-
 import { useRef, useEffect } from "react"
 import styles from "./Skills.module.css"
 import { skills } from "@/lib/info"
 
-// We duplicate the list so the scroll loops without a visible jump
 const doubled = [...skills, ...skills]
 
 export default function Skills() {
   const trackRef = useRef<HTMLDivElement>(null)
-  const posRef   = useRef(0)        // current scroll offset in px
-  const dirRef   = useRef(1)        // 1 = right, -1 = left
-  const speedRef = useRef(0)        // cursor override speed
+  const posRef   = useRef(0)
+  const dirRef   = useRef(1)
+  const speedRef = useRef(0)
   const hoverRef = useRef(false)
   const rafRef   = useRef<number>(0)
 
@@ -32,16 +18,11 @@ export default function Skills() {
     const track = trackRef.current
     if (!track) return
 
-    const AUTO_SPEED = 0.6   // px per frame when auto-scrolling
-    const MAX_CURSOR = 10    // max px per frame from cursor position
-
-    function getLoopPoint() {
-      // Half the track width — where we reset to create the infinite loop
-      return track.scrollWidth / 2
-    }
+    const AUTO_SPEED = 0.6
 
     function frame() {
-      const max = getLoopPoint()
+      if (!track) return
+      const max = track.scrollWidth / 2
 
       if (hoverRef.current && speedRef.current !== 0) {
         posRef.current += speedRef.current
@@ -49,7 +30,6 @@ export default function Skills() {
         posRef.current += dirRef.current * AUTO_SPEED
       }
 
-      // Loop seamlessly
       if (posRef.current >= max) posRef.current = 0
       if (posRef.current < 0)   posRef.current = max - 1
 
@@ -63,15 +43,13 @@ export default function Skills() {
 
   function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
     const rect = e.currentTarget.getBoundingClientRect()
-    const cx   = e.clientX - rect.left
-    const norm = (cx / rect.width) * 2 - 1  // -1 to +1
+    const norm = ((e.clientX - rect.left) / rect.width) * 2 - 1
 
-    // Dead zone: |norm| < 0.15 → stop cursor override
     if (Math.abs(norm) < 0.15) {
       speedRef.current = 0
     } else {
       speedRef.current = norm * 10
-      dirRef.current   = norm > 0 ? 1 : -1   // update auto direction too
+      dirRef.current   = norm > 0 ? 1 : -1
     }
   }
 
@@ -82,7 +60,7 @@ export default function Skills() {
 
       <div
         className={styles.trackWrap}
-        onMouseEnter={() => { hoverRef.current = true  }}
+        onMouseEnter={() => { hoverRef.current = true }}
         onMouseLeave={() => { hoverRef.current = false; speedRef.current = 0 }}
         onMouseMove={handleMouseMove}
       >
@@ -95,9 +73,7 @@ export default function Skills() {
             </div>
           ))}
         </div>
-
-        {/* Faded edges so cards fade out naturally on both sides */}
-        <div className={styles.fadeLeft}  />
+        <div className={styles.fadeLeft} />
         <div className={styles.fadeRight} />
       </div>
     </div>
