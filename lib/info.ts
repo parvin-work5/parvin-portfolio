@@ -24,7 +24,7 @@ export const info = {
     Answer questions about Parvin in a warm, professional tone.
     Keep answers to 2–4 sentences. Speak about Parvin in third person.
 
-    Here is everything you know about her:
+    Here is everything you know about him:
 
     NAME: Parvin Rajamurthi
     ROLE: Full Stack Developer (transitioned from graphic design)
@@ -80,14 +80,14 @@ export const skills = [
 export const projects = [
   {
     name: "PawXOne",
-    status: "live" as const,
+    status: "wip" as const,
     description:
       "A cross-platform pet management platform built solo — health records, vet appointments, and daily logs across iOS, Android, and web in one unified app.",
     tags: ["React Native", "Expo", "Firebase", "Cloudinary", "TypeScript", "CI/CD"],
   },
   {
     name: "AI Portfolio Site",
-    status: "wip" as const,
+    status: "live" as const,
     description:
       "This very portfolio — with an embedded AI assistant that answers questions about Parvin's work, skills, and background in real time.",
     tags: ["Next.js", "React", "AI", "TypeScript", "Vercel"],

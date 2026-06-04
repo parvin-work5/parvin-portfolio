@@ -1,12 +1,5 @@
-// ─────────────────────────────────────────────
-// components/Contact.tsx
-//
-// "Let's work together" section with contact
-// links. Update email / github / linkedin in
-// lib/info.ts — it flows through here.
-// ─────────────────────────────────────────────
-
 import styles from "./Contact.module.css"
+import GlitchButton from "./GlitchButton"
 import { info } from "@/lib/info"
 
 export default function Contact() {
@@ -29,20 +22,18 @@ export default function Contact() {
         </div>
 
         <div className={styles.links}>
-          <a href={`mailto:${info.email}`} className={styles.link}>
-            <span className={styles.linkIcon}>✉</span>
-            <span className={styles.linkText} data-text={info.email}>{info.email}</span>
-          </a>
-          <a href={info.github} target="_blank" rel="noreferrer" className={styles.link}>
-            <span className={styles.linkIcon}>◆</span>
-            <span className={styles.linkText} data-text="github.com/parvin">github.com/parvin</span>
-          </a>
-          <a href={info.linkedin} target="_blank" rel="noreferrer" className={styles.link}>
-            <span className={styles.linkIcon}>in</span>
-            <span className={styles.linkText} data-text="linkedin.com/in/parvin">linkedin.com/in/parvin</span>
-          </a>
+          <GlitchButton href={`$mailto:work.parvin5@gmail.com`} variant="outline">
+            ✉ Email Parvin
+          </GlitchButton>
+          <GlitchButton href="https://github.com/parvin-work5/" variant="outline">
+            ◆ github.com/parvin
+          </GlitchButton>
+          <GlitchButton href="https://www.linkedin.com/in/parvin-rajamurthi-5617a2236/" variant="outline">
+            in linkedin.com/in/parvin
+          </GlitchButton>
         </div>
       </div>
     </div>
+        
   )
 }
