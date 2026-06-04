@@ -10,9 +10,9 @@ export const info = {
   name: "Parvin Rajamurthi",
   role: "Full Stack Developer",
   location: "Kuala Lumpur, Malaysia",
-  email: "parvin@email.com",
+  email: "work.parvin5@email.com",
   github: "https://github.com/parvin-work5",
-  linkedin: "https://linkedin.com/in/parvin",
+  linkedin: "https://www.linkedin.com/in/parvin-rajamurthi-5617a2236/",
   available: true,
 
   bio: "I come from graphic design and moved into full stack development — so I build things that work beautifully on every level. Currently creating cross-platform apps and AI-powered tools.",
@@ -28,7 +28,7 @@ export const info = {
 
     NAME: Parvin Rajamurthi
     ROLE: Full Stack Developer (transitioned from graphic design)
-    LOCATION: Kuala Lumpur / Putra Heights, Selangor, Malaysia
+    LOCATION: Kuala Lumpur, Malaysia
 
     EDUCATION:
     - Diploma in Software Engineering
@@ -39,7 +39,7 @@ export const info = {
     - Graphic Designer at HTT Travel (~1+ years)
 
     TECHNICAL SKILLS:
-    React Native, Expo, Next.js, Firebase, Cloudinary,
+    React Native, React.js, Next.js, Firebase, Cloudinary,
     TypeScript, GitHub Actions CI/CD, Figma, UI/UX Design, Graphic Design
 
     PROJECTS:
@@ -53,8 +53,8 @@ export const info = {
        Stack: Next.js, React, TypeScript, Vercel.
 
     BACKGROUND:
-    Parvin's creative graphic design career gives her a strong eye for UI/UX.
-    She bridges design thinking and engineering in everything she builds.
+    Parvin's creative graphic design career gives him a strong eye for UI/UX.
+    He bridges design thinking and engineering in everything he builds.
 
     CONTACT / AVAILABILITY:
     Open to full-time roles, freelance projects, and collaboration.
@@ -65,8 +65,10 @@ export const info = {
 export const skills = [
   { name: "React Native", type: "Mobile",   icon: "⚛"  },
   { name: "Next.js",      type: "Web",      icon: "▲"  },
+  { name: "React.js",     type: "Web",      icon: "⚛"  },
   { name: "TypeScript",   type: "Language", icon: "TS" },
   { name: "Firebase",     type: "Backend",  icon: "🔥" },
+  { name: "PostgreSQL",   type: "Backend",  icon: "🐘" },
   { name: "Expo",         type: "Mobile",   icon: "📱" },
   { name: "Cloudinary",   type: "Media",    icon: "☁"  },
   { name: "GitHub Actions", type: "DevOps", icon: "⚙" },
@@ -96,7 +98,7 @@ export const aiChips = [
   { label: "Work experience", question: "Tell me about Parvin's work experience." },
   { label: "Projects",        question: "What projects has Parvin built?" },
   { label: "Skills",          question: "What are Parvin's technical skills?" },
-  { label: "About Parvin",    question: "Tell me about Parvin's background and who she is." },
+  { label: "About Parvin",    question: "Tell me about Parvin's background and who he is." },
   { label: "Contact",         question: "How can I contact Parvin?" },
   { label: "PawXOne",         question: "What is PawXOne?" },
 ]
